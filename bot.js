@@ -23,8 +23,18 @@ client.on('message', (msg) => {
 			REACTORME(msg.member);
 			break;
 		case `${BOT_PREFIX} p`:
-			msg.channel.send(`;;shuffle`);
-			msg.channel.send(`;;play ${url}`);
+			const channel = client.channels.get('794859641627869185');
+			if (!channel) return console.error('The channel does not exist!');
+			channel
+				.join()
+				.then((connection) => {
+					msg.channel.send(`;;shuffle`);
+					msg.channel.send(`;;play ${url}`);
+				})
+				.catch((e) => {
+					// Oh no, it errored! Let's log it to console :)
+					console.error(e);
+				});
 			break;
 	}
 });
