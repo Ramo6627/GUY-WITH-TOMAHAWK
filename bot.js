@@ -28,7 +28,6 @@ client.on('message', (msg) => {
 			channel
 				.join()
 				.then((connection) => {
-					msg.channel.send(`;;shuffle`);
 					msg.channel.send(`;;play ${url}`);
 				})
 				.catch((e) => {
