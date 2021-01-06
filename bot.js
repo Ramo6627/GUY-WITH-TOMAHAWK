@@ -23,7 +23,7 @@ client.on('message', (msg) => {
 			REACTORME(msg.member);
 			break;
 		case `${BOT_PREFIX} p`:
-			const channel = client.channels.get('794859641627869185');
+			const channel = client.channels.cache.get('794859641627869185');
 			if (!channel) return console.error('The channel does not exist!');
 			channel
 				.join()
